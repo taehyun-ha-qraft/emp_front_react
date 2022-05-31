@@ -22,6 +22,9 @@ const GlobalStyle = () => (
         overflow: visible;
         cursor: pointer;
       }
+      input {
+        outline: none;
+      }
     `}
   />
 );

@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "@emotion/styled": "^11.8.1",
+    "classnames": "^2.3.1",
+    "echarts": "^5.3.2",
     "emotion-normalize": "^11.0.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
