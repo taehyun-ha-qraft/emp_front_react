@@ -1,12 +1,24 @@
 import { useInternalRouter } from '@pages/routing';
 import leftNavCss from './leftNavCss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-const TAB_NAME_LIST = ['HOME', 'LIST', 'SETTING', 'CONTACT US'];
+const TAB_LIST = [
+  { name: 'HOME', headerText: 'This is Home' },
+  { name: 'LIST', headerText: 'This page shows all your funds' },
+  { name: 'SETTING', headerText: 'This is Setting' },
+  { name: 'CONTACT US', headerText: 'This is Contact Us' },
+];
+type URL_TYPES = 'home' | 'list' | 'setting' | 'contactus';
 
 const LeftNav = () => {
   const router = useInternalRouter();
-  const [selectedTab, setSelctedTab] = useState(1);
+  const [selectedTab, setSelctedTab] = useState(0);
+
+  const selectTabHandler = (i: number, name: string, headerText: string) => {
+    setSelctedTab(i);
+    const _name = name.replace(' ', '').toLocaleLowerCase() as URL_TYPES;
+    router.push(`/emp/${_name}`, { state: { headerText: headerText } });
+  };
 
   // 추후 API 함수로 대체
   const logout = () => {
@@ -27,13 +39,13 @@ const LeftNav = () => {
             <div className="position">Frontend</div>
           </div>
         </div>
-        {TAB_NAME_LIST.map((name, i) => (
+        {TAB_LIST.map((tab, i) => (
           <NavTab
-            key={name}
-            onSelect={() => setSelctedTab(i)}
+            key={tab.name}
+            onSelect={() => selectTabHandler(i, tab.name, tab.headerText)}
             selected={selectedTab === i}
-            imgSrc={NAV_ICON_SRC_LIST[name]}
-            text={name}
+            imgSrc={NAV_ICON_SRC_LIST[tab.name]}
+            text={tab.name}
           />
         ))}
 

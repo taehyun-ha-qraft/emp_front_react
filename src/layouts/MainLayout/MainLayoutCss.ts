@@ -7,6 +7,7 @@ export default {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    overflow-x: hidden;
   `,
   mainView: css`
     margin-left: ${LEFT_NAV_WIDTH}px;
@@ -14,6 +15,7 @@ export default {
     padding: 0 30px;
     padding-bottom: 40px;
     overflow: auto;
+    min-width: 1260px;
 
     &::-webkit-scrollbar {
       width: 8px;

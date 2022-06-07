@@ -33,6 +33,10 @@ const LoginPage = () => {
   const [errorStatus, setErrorStatus] = useState<string>();
 
   useEffect(() => {
+    localStorage.clear();
+  }, []);
+
+  useEffect(() => {
     if (!errorStatus) {
       setErrorMessages('');
       return;
@@ -46,7 +50,7 @@ const LoginPage = () => {
     const username = data.get('username');
     const password = data.get('password');
     const userData = DATABASE.find((user) => user.username === username);
-    console.log(userData);
+    // console.log(userData);
     if (userData) {
       if (userData.password !== password) {
         setErrorStatus('password');
@@ -54,7 +58,7 @@ const LoginPage = () => {
         if (errorStatus) setErrorStatus(undefined);
 
         localStorage.setItem('token', username as string);
-        router.push('/list');
+        router.push('/emp');
       }
     } else {
       setErrorStatus('username');

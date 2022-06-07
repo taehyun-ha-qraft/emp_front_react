@@ -1,20 +1,42 @@
-// import './previewTable.scss';
 import previewTableCss from './previewTableCss';
 
-const TABLE_DATA = {
-  index: '299.19▲ 0.61(0.32%)',
-  rebalancedOn: null,
-  updateAsOf: '2022-02-16',
-  inceptionDate: '2008-03-28',
-  '1m': '-3.13%',
-  '3m': '-4.41%',
-  '6m': '0.35%',
-  '1y': '6.54%',
-  '3y': '42.00%',
-  '5y': '58.32%',
-  ytd: '-4.90%',
-  itd: '97.90%',
+export type PreviewTableData = {
+  title: string;
+  lastUpdate: string;
+  rows: {
+    index: string;
+    rebalancedOn: null;
+    updateAsOf: string;
+    inceptionDate: string;
+    '1m': string;
+    '3m': string;
+    '6m': string;
+    '1y': string;
+    '3y': string;
+    '5y': string;
+    ytd: string;
+    itd: string;
+  };
 };
+
+type PreviewTableProps = {
+  tableData: PreviewTableData;
+};
+const PreviewTable = ({ tableData }: PreviewTableProps) => {
+  const { title, lastUpdate, rows } = tableData;
+
+  return (
+    <div css={previewTableCss.container}>
+      <p className="preview-table-header">
+        <span className="product-name">{title}</span>
+        <span className="last-update">Last update : {lastUpdate}</span>
+      </p>
+      {createTable(rows)}
+    </div>
+  );
+};
+
+export default PreviewTable;
 
 const createTable = (data: any) => {
   return (
@@ -56,17 +78,3 @@ const createTable = (data: any) => {
     </table>
   );
 };
-
-const PreviewTable = () => {
-  return (
-    <div css={previewTableCss.container}>
-      <p className="preview-table-header">
-        <span className="product-name">HANALIFE_2. 하나생명 AI글로벌주식혼합60형 (MP)</span>
-        <span className="last-update">Last update : 2021-02-15</span>
-      </p>
-      {createTable(TABLE_DATA)}
-    </div>
-  );
-};
-
-export default PreviewTable;

@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { NavigateOptions, useNavigate } from 'react-router-dom';
 import { useMemo } from 'react';
 
 export function useInternalRouter() {
@@ -8,12 +8,18 @@ export function useInternalRouter() {
       goBack() {
         navigate(-1);
       },
-      push(path: RoutePath) {
-        navigate(path);
+      push(path: RoutePath, options?: NavigateOptions) {
+        navigate(path, options);
       },
     };
   }, [navigate]);
 }
 
-// type RoutePath = 'example' | '/main' | '/login' | '/parents' | `/parents/${string}`;
-type RoutePath = '/login' | '/list' | `/list/${string}`;
+type RoutePath =
+  | '/login'
+  | '/emp'
+  | '/emp/list'
+  | `/emp/list/${string}`
+  | '/emp/home'
+  | '/emp/setting'
+  | '/emp/contactus';

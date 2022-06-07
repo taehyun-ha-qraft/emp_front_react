@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 
 export default {
   top: css`
+  min-width: 1527px;
     height: 232px;
     background-color: #09104b;
     color: #ffffff;
