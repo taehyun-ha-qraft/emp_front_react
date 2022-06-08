@@ -39,14 +39,10 @@ const MDD = () => {
   };
 
   return (
-    <section css={mddCss.section}>
-      <div css={mddCss.container}>
-        <DetailLabel label="MDD" />
-        <div className="chart-container">
-          <EchartsBase option={option} />
-        </div>
-      </div>
-    </section>
+    <div css={mddCss.container}>
+      <DetailLabel label="MDD" />
+      <EchartsBase option={option} containerCss={mddCss.chartWrapper} />
+    </div>
   );
 };
 

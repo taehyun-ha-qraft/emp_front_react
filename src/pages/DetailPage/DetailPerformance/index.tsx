@@ -64,16 +64,12 @@ const DetailPerformance = () => {
     ],
   };
   return (
-    <section css={detailPerformanceCss.section}>
-      <div css={detailPerformanceCss.container}>
-        <div>
-          <DetailLabel label="Detail Performance" />
-          <div className="chart-container">
-            <EchartsBase option={option} />
-          </div>
-        </div>
+    <div css={detailPerformanceCss.container}>
+      <div>
+        <DetailLabel label="Detail Performance" />
+        <EchartsBase option={option} containerCss={detailPerformanceCss.chartWrapper} />
       </div>
-    </section>
+    </div>
   );
 };
 export default DetailPerformance;

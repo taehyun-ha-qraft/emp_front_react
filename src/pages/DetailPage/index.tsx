@@ -14,10 +14,8 @@ const Detail = () => {
     <div css={detailCss.container}>
       <CumulativeReturn />
       <div css={detailCss.flexRow}>
-        <div css={detailCss.rowWrpper}>
-          <BasicPerformance />
-          <AllocationStatus />
-        </div>
+        <BasicPerformance />
+        <AllocationStatus />
       </div>
       <DetailPerformance />
       <MDD />

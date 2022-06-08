@@ -81,10 +81,8 @@ const CumulativeReturn = () => {
 
   return (
     <div css={cumulativeReturnCss.container}>
-      <div>
-        <DetailLabel label="Cumulative Return" />
-        <EchartsBase option={option} containerCss={cumulativeReturnCss.chartWrapper} />
-      </div>
+      <DetailLabel label="Cumulative Return" />
+      <EchartsBase option={option} containerCss={cumulativeReturnCss.chartWrapper} />
     </div>
   );
 };

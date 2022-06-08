@@ -25,6 +25,9 @@ const GlobalStyle = () => (
       input {
         outline: none;
       }
+      body {
+        overflow-y: hidden;
+      }
     `}
   />
 );

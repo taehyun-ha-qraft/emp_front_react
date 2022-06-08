@@ -100,12 +100,12 @@ const PerformanceTable = () => {
     );
   };
   return (
-    <section css={performanceTableCss.section}>
+    // <section css={performanceTableCss.section}>
       <div css={performanceTableCss.container}>
         <DetailLabel label="Performace Table (%, 샤프: x.x , 2자리수)" />
         <div className="table-container">{createTable(DATA)}</div>
       </div>
-    </section>
+    // </section>
   );
 };
 

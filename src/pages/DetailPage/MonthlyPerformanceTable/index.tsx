@@ -203,13 +203,10 @@ const MonthlyPerfomanceTable = () => {
     );
   };
   return (
-    <section css={monthlyPerformanceTableCss.section}>
-      {/* <div className="monthly-performance-container"> */}
-      <div css={monthlyPerformanceTableCss.container}>
-        <DetailLabel label="Monthly Performance Table (%, 샤프: x.x , 2자리수) lazyportfolio" />
-        <div className="table-container">{createTable(DATA)}</div>
-      </div>
-    </section>
+    <div css={monthlyPerformanceTableCss.container}>
+      <DetailLabel label="Monthly Performance Table (%, 샤프: x.x , 2자리수) lazyportfolio" />
+      <div className="table-container">{createTable(DATA)}</div>
+    </div>
   );
 };
 

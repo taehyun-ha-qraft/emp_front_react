@@ -1,6 +1,6 @@
 import { useInternalRouter } from '@pages/routing';
 import leftNavCss from './leftNavCss';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const TAB_LIST = [
   { name: 'HOME', headerText: 'This is Home' },
@@ -12,10 +12,11 @@ type URL_TYPES = 'home' | 'list' | 'setting' | 'contactus';
 
 const LeftNav = () => {
   const router = useInternalRouter();
-  const [selectedTab, setSelctedTab] = useState(0);
+  const [selectedTab, setSelctedTab] = useState(Number(localStorage.getItem('currentTab')) || 0);
 
   const selectTabHandler = (i: number, name: string, headerText: string) => {
     setSelctedTab(i);
+    localStorage.setItem('currentTab', String(i));
     const _name = name.replace(' ', '').toLocaleLowerCase() as URL_TYPES;
     router.push(`/emp/${_name}`, { state: { headerText: headerText } });
   };

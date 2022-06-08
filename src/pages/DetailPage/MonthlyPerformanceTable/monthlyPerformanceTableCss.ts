@@ -1,16 +1,7 @@
 import { css } from '@emotion/react';
 
 export default {
-  section: css`
-    display: flex;
-    justify-content: center;
-  `,
   container: css`
-    width: 1200px;
-    @media (min-width: 1920px) {
-      width: 1400px;
-    }
-
     .table-container {
       background-color: #ffffff;
       box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.13);

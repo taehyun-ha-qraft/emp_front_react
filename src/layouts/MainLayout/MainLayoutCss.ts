@@ -8,14 +8,18 @@ export default {
     flex-direction: column;
     height: 100vh;
     overflow-x: hidden;
+    min-width: 1527px;
   `,
   mainView: css`
     margin-left: ${LEFT_NAV_WIDTH}px;
-    flex-grow: 1;
+    height: 100%;
+    /* flex-grow: 1; */
     padding: 0 30px;
     padding-bottom: 40px;
-    overflow: auto;
-    min-width: 1260px;
+    overflow-y: auto;
+
+    display: flex;
+    justify-content: center;
 
     &::-webkit-scrollbar {
       width: 8px;
@@ -34,5 +38,11 @@ export default {
       margin-top: 5px;
       margin-bottom: 6px;
     }
+  `,
+
+  responsiveCenter: css`
+    flex-grow: 1;
+    width: 1200px;
+    max-width: 1600px;
   `,
 };
