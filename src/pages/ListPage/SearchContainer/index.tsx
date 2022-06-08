@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import searchContainerCss from './searchContainerCss';
 import classnames from 'classnames';
 
@@ -113,21 +113,30 @@ const SearchContainer = () => {
     });
   };
 
+  const filterRef = useRef<HTMLDivElement>(null);
+  const handleClickOutSide = (e: any) => {
+    if (!filterRef.current) return;
+    if (filterOpen && !filterRef.current.contains(e.target)) {
+      setFilterOpen(false);
+    }
+  };
+  useEffect(() => {
+    if (filterOpen) document.addEventListener('mousedown', handleClickOutSide);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutSide);
+    };
+  }, []);
+
   return (
     <div css={searchContainerCss.container}>
       <input css={[searchContainerCss.searchInput]} type="text" placeholder="Search" className="search-input" />
-      <div css={searchContainerCss.filter} className="customer-filter">
+      <div css={searchContainerCss.filter} className="customer-filter" ref={filterRef}>
         <div
           className={classnames('inner-input', {
             'open-filter-board': filterOpen,
           })}
         >
-          <input
-            type="text"
-            placeholder="Filter Tags"
-            // onBlur={() => setFilterOpen(false)}
-            onFocus={() => setFilterOpen(true)}
-          />
+          <input type="text" placeholder="Filter Tags" onFocus={() => setFilterOpen(true)} />
           <img src={`/asset/bx-arrow-down.png`} alt="arrow-down" width="24px" onClick={toggleFilter} />
         </div>
 
