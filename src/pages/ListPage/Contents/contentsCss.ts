@@ -5,6 +5,7 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 13px;
+    padding-bottom: 30px;
   `,
   row: css`
     display: flex;
