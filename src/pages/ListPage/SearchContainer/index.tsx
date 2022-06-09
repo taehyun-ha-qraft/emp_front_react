@@ -114,18 +114,31 @@ const SearchContainer = () => {
   };
 
   const filterRef = useRef<HTMLDivElement>(null);
-  const handleClickOutSide = (e: any) => {
+  const handleClickFilterOutSide = (e: MouseEvent) => {
+    console.log('filter');
     if (!filterRef.current) return;
-    if (filterOpen && !filterRef.current.contains(e.target)) {
+    if (filterOpen && !filterRef.current.contains(e.target as Node)) {
       setFilterOpen(false);
     }
   };
+  const sortRef = useRef<HTMLDivElement>(null);
+  const handleClickSortOutSide = (e: MouseEvent) => {
+    console.log('sort');
+    if (!sortRef.current) return;
+    if (sortOpen && !sortRef.current.contains(e.target as Node)) {
+      setSortOpen(false);
+    }
+  };
+
   useEffect(() => {
-    if (filterOpen) document.addEventListener('mousedown', handleClickOutSide);
+    if (filterOpen) document.addEventListener('mousedown', handleClickFilterOutSide);
+    if (sortOpen) document.addEventListener('mousedown', handleClickSortOutSide);
+
     return () => {
-      document.removeEventListener('mousedown', handleClickOutSide);
+      document.removeEventListener('mousedown', handleClickFilterOutSide);
+      document.removeEventListener('mousedown', handleClickSortOutSide);
     };
-  }, []);
+  }, [filterOpen, sortOpen]);
 
   return (
     <div css={searchContainerCss.container}>
@@ -164,7 +177,7 @@ const SearchContainer = () => {
 
       <button css={searchContainerCss.filterApplyButton}>Apply</button>
 
-      <div css={searchContainerCss.selectWrapper} className="select-wrapper">
+      <div ref={sortRef} css={searchContainerCss.selectWrapper} className="select-wrapper">
         <p className={classnames('label', { 'open-sort-board': sortOpen })} onClick={toggleSort}>
           {selectedSort} <span className="select-arrow"></span>
         </p>

@@ -39,10 +39,10 @@ export default {
               color: #5b5b5b;
               vertical-align: middle;
             }
-            th:first-child {
+            th:first-of-type {
               border-left: none;
             }
-            th:last-child {
+            th:last-of-type {
               border-right: none;
             }
           }
@@ -66,10 +66,10 @@ export default {
             td.td-year {
               font-weight: 700;
             }
-            td:first-child {
+            td:first-of-type {
               border-left: none;
             }
-            td:last-child {
+            td:last-of-type {
               border-right: none;
             }
           }
