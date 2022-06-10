@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import search_image from '@asset/bx-search.png'
 
 export default {
   container: css`
@@ -16,7 +17,7 @@ export default {
     border: 0.5px solid #c4c4c4;
     border-radius: 6px;
     margin-right: 10px;
-    background-image: url('asset/bx-search.png');
+    background-image: url(${search_image});
     background-size: 24px 24px;
     background-position: center right 13px;
     background-repeat: no-repeat;

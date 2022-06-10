@@ -14,11 +14,13 @@ module.exports = {
       '@types': path.resolve(__dirname, 'src/types'),
       '@store': path.resolve(__dirname, 'src/store'),
       '@layouts': path.resolve(__dirname, 'src/layouts'),
+      '@asset': path.resolve(__dirname, './public/asset'),
     },
   },
   output: {
     path: path.resolve(__dirname, './build'),
     filename: 'bundle.js',
+    assetModuleFilename: 'images/[hash][ext][query]'
   },
   module: {
     rules: [

@@ -1,10 +1,10 @@
 import DetailLabel from '../../../components/DetailLabel';
 import EchartsBase from '@components/EchartsBase';
-import { EChartsOption, SeriesOption } from 'echarts';
+import { EChartsOption } from 'echarts';
 import { useState } from 'react';
 import { css } from '@emotion/react';
-// import { pieChartColorPalette } from '../../../styles/color';
 import allocationStatusCss from './allocationStatusCss';
+import polygon_image from '@asset/Polygon.png';
 
 export const pieChartColorPalette = () => [
   '#0D1559',
@@ -235,7 +235,7 @@ const AllocationStatus = () => {
               }}
             >
               <span>{selected.label}</span>
-              <img src={`/asset/Polygon.png`} alt="polygon" />
+              <img src={polygon_image} alt="polygon" />
             </p>
 
             {toggle &&

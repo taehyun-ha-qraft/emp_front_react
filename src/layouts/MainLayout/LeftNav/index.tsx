@@ -1,6 +1,14 @@
 import { useInternalRouter } from '@pages/routing';
 import leftNavCss from './leftNavCss';
 import { useState } from 'react';
+import logo2 from '@asset/logo2.png';
+import joker from '@asset/joker.jpg';
+import home_icon from '@asset/nav_icon/bx-home.png';
+import list_icon from '@asset/nav_icon/bx-list.png';
+import setting_icon from '@asset/nav_icon/bx-setting.png';
+import contact_icon from '@asset/nav_icon/bx-help.png';
+import dots_image from '@asset/bx-dots.png';
+import logout_image from '@asset/bx-log-out.png';
 
 const TAB_LIST = [
   { name: 'HOME', headerText: 'This is Home' },
@@ -28,11 +36,11 @@ const LeftNav = () => {
   };
   return (
     <div css={leftNavCss.container}>
-      <img css={leftNavCss.logo} src={`/asset/logo2.png`} alt="QRAFT_LOGO" />
+      <img css={leftNavCss.logo} src={logo2} alt="QRAFT_LOGO" />
       <div css={leftNavCss.nav}>
         <div css={leftNavCss.profile}>
           <div css={leftNavCss.photo}>
-            <img css={leftNavCss.resizePhoto} src={`/asset/joker.jpg`} alt="joker" />
+            <img css={leftNavCss.resizePhoto} src={joker} alt="joker" />
           </div>
           <div css={leftNavCss.status} />
           <div css={leftNavCss.info}>
@@ -51,9 +59,9 @@ const LeftNav = () => {
         ))}
 
         <div css={leftNavCss.bottom}>
-          <img src={`/asset/bx-dots.png`} alt="edit my info" width="34px" height="34px" />
+          <img src={dots_image} alt="edit my info" width="34px" height="34px" />
           <div className="logout" onClick={logout}>
-            <img src={`/asset/bx-log-out.png`} alt="logout" className="logout-icon" />
+            <img src={logout_image} alt="logout" className="logout-icon" />
             Log out
           </div>
         </div>
@@ -65,10 +73,10 @@ const LeftNav = () => {
 export default LeftNav;
 
 const NAV_ICON_SRC_LIST: { [name: string]: string } = {
-  HOME: '/asset/nav_icon/bx-home.png',
-  LIST: '/asset/nav_icon/bx-list.png',
-  SETTING: '/asset/nav_icon/bx-setting.png',
-  'CONTACT US': '/asset/nav_icon/bx-help.png',
+  HOME: home_icon,
+  LIST: list_icon,
+  SETTING: setting_icon,
+  'CONTACT US': contact_icon,
 };
 type NavTabProps = {
   imgSrc: string;

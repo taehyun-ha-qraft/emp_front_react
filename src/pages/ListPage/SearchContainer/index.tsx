@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import searchContainerCss from './searchContainerCss';
 import classnames from 'classnames';
+import tag_close_image from '@asset/bx-x.png';
+import arrow_down_image from '@asset/bx-arrow-down.png';
+import sort_down_image from '@asset/bx-sort-down.png';
 
 const CHECKBOX_DATA = [
   { id: 'hana0', value: '하나생명' },
@@ -44,7 +47,7 @@ const FilterTag = ({ data, popTag }: FilterTagProps) => {
   return (
     <span className="tag" onClick={() => popTag(data.id)}>
       {data.value}
-      <img src={`/asset/bx-x.png`} alt="tag-delete" width="13px" />
+      <img src={tag_close_image} alt="tag-delete" width="13px" />
     </span>
   );
 };
@@ -150,7 +153,7 @@ const SearchContainer = () => {
           })}
         >
           <input type="text" placeholder="Filter Tags" onFocus={() => setFilterOpen(true)} />
-          <img src={`/asset/bx-arrow-down.png`} alt="arrow-down" width="24px" onClick={toggleFilter} />
+          <img src={arrow_down_image} alt="arrow-down" width="24px" onClick={toggleFilter} />
         </div>
 
         {filterOpen && (
@@ -193,7 +196,7 @@ const SearchContainer = () => {
       </div>
 
       <button css={searchContainerCss.sortButton}>
-        <img src={`/asset/bx-sort-down.png`} alt="sort-btn" />
+        <img src={sort_down_image} alt="sort-btn" />
       </button>
     </div>
   );

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { useInternalRouter } from '@pages/routing';
 import classnames from 'classnames';
 import loginCss from './loginPageCss';
+import logo2 from '@asset/logo2.png';
+import Login_Background from '@asset/Login_Background.png';
 
 const DATABASE = [
   {
@@ -67,7 +69,7 @@ const LoginPage = () => {
 
   return (
     <div css={loginCss.container}>
-      <img css={loginCss.background} src={'/asset/Login_Background.png'} alt="login_background" />
+      <img css={loginCss.background} src={Login_Background} alt="login_background" />
       <div css={loginCss.box}>
         <p css={loginCss.title}>QRAFT AI Asset Management System</p>
         <p css={loginCss.subtitle}>Transforming Investing with AI</p>
@@ -95,7 +97,7 @@ const LoginPage = () => {
       </div>
 
       <div css={loginCss.footer}>
-        <img className="logo" src={'/asset/logo2.png'} alt="QRAFT_LOGO" />
+        <img className="logo" src={logo2} alt="QRAFT_LOGO" />
       </div>
     </div>
   );
